@@ -1,3 +1,3 @@
-// module.exports = {
-//     SECRET: 'dfjnvcmklbdfjvnkcmxlzbdvjfkxncmsjvnxc'
-// }
+module.exports = {
+    SECRET: 'dfjnvcmklbdfjvnkcmxlzbdvjfkxncmsjvnxc'
+}
