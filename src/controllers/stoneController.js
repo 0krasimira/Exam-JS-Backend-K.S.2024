@@ -13,5 +13,9 @@ router.get('/search', (req, res) => {
     res.render('search')
 })
 
+router.get('/create', (req, res) => {
+    res.render('stone/create')
+})
+
 
 module.exports = router
