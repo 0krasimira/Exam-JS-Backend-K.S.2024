@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema({
 
 userSchema.pre('save', async function(){
     const hash = await bcrypt.hash(this.password, 12)
-    this.password= hash;
+    this.password = hash;
  });
  
  userSchema.virtual('repeatPassword')

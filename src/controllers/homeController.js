@@ -2,8 +2,8 @@ const router = require("express").Router()
 const stoneManager = require("../managers/stoneManager")
 
 router.get("/", async (req, res) => {
-    // const courses = await courseManager.getThree().lean()
-    res.render("home")
+    const stones = await stoneManager.getThree().lean()
+    res.render("home", {stones})
 })
 
 router.get('/404', (req, res) => {

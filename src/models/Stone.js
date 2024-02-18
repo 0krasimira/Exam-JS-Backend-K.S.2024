@@ -12,10 +12,10 @@ const stoneSchema = new mongoose.Schema({
         required: [true, "All fields are mandatory."],
         minLenght: [3, 'The category should be at least 3 characters long.']
     },
-    colour:{
+    color:{
         type: String,
         required: [true, "All fields are mandatory."],
-        minLength: [2, 'The colour should be at least 2 characters long.']
+        minLength: [2, 'The color should be at least 2 characters long.']
     },
     image:{
         type: String,
