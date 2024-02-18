@@ -1,15 +1,13 @@
-const authRouter = require("express").Router()
-const userManager = require("../managers/userManager")
+const router = require("express").Router()
 const {getErrorMessage} = require('../utils/errorUtils')
-const {isAuth, isGuest} = require("../middlewares/authMiddleware")
+const userManager = require('../managers/userManager')
+const {isGuest, isAuth} = require('../middlewares/authMiddleware')
 
-//TODO: CHECK NEEDED INFO FOR REGISTRATION
- 
-authRouter.get("/register", isGuest, (req, res) => {
+router.get('/register', isGuest, (req, res) => {
     res.render('auth/register')
 })
 
-authRouter.post("/register", isGuest, async (req, res) => {
+router.post("/register", isGuest, async (req, res) => {
     const userData = req.body
     try {
         await userManager.register(userData)
@@ -20,11 +18,12 @@ authRouter.post("/register", isGuest, async (req, res) => {
     
 })
 
-authRouter.get("/login", isGuest, async (req, res) => {
-    res.render("auth/login")
+
+router.get('/login', isGuest, (req, res) => {
+    res.render('auth/login')
 })
 
-authRouter.post('/login', isGuest, async (req, res) => {
+router.post('/login', isGuest, async (req, res) => {
     const { email, password } = req.body;
     try{
         const token = await userManager.login(email, password);
@@ -37,9 +36,11 @@ authRouter.post('/login', isGuest, async (req, res) => {
     
 });
 
-authRouter.get('/logout', isAuth, (req, res) => {
+router.get('/logout', isAuth, (req, res) => {
     res.clearCookie('auth')
     res.redirect('/')
 })
 
-module.exports = authRouter
+
+
+module.exports = router
