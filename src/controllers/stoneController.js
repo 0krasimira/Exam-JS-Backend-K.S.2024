@@ -9,5 +9,9 @@ router.get('/dashboard', (req, res) => {
     res.render('dashboard')
 })
 
+router.get('/search', (req, res) => {
+    res.render('search')
+})
+
 
 module.exports = router
