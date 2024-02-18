@@ -31,11 +31,16 @@
                     </div>
 
                     <!--Edit and Delete are only for creator-->
+                    {{#if isAuthenticated}}
                     <div id="action-buttons">
-                        <a href="#" id="edit-btn">Edit</a>
-                        <a href="#" id="delete-btn">Delete</a>
+                        {{#if isOwner}}
+                        <a href="/{{stone._id}}/edit" id="edit-btn">Edit</a>
+                        <a href="/{{stone._id}}/delete" id="delete-btn">Delete</a>
+                        {{else}}
                         <a href="#" id="like-btn">Like</a>
                         <p id="already-liked">You already liked this stone!</p>
+                        {{/if}}
+                        {{/if}}
                     </div>
                 </div>
             </section>

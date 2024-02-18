@@ -9,7 +9,6 @@ exports.create = (userId, stoneData) => {
     return createdStone
 }
 
-
 exports.getAll = () => Stone.find()
 exports.getOne = (stoneId) => Stone.findById(stoneId)
 exports.getOneWithDetails = (stoneId) => this.getOne(stoneId).populate('owner').populate("likedList")
@@ -21,5 +20,5 @@ exports.like = async(stoneId, userId) => {
 }
 
 
-exports.edit = (electronicId, electronicData) => Electronic.findByIdAndUpdate(electronicId, electronicData, { runValidators: true })
-exports.delete = (electronicId) => Electronic.findByIdAndDelete(electronicId)
+exports.edit = (stoneId, stoneData) => Stone.findByIdAndUpdate(stoneId, stoneData, { runValidators: true })
+// exports.delete = (electronicId) => Electronic.findByIdAndDelete(electronicId)
