@@ -5,8 +5,9 @@ const {getErrorMessage} = require('../utils/errorUtils')
 const {isAuth} = require("../middlewares/authMiddleware")
 // const {isGuest} = require('../middlewares/authMiddleware')
 
-router.get('/dashboard', (req, res) => {
-    res.render('dashboard')
+router.get('/dashboard', async (req, res) => {
+    const stones = await stoneManager.getAll().lean()
+    res.render('dashboard', {stones})
 })
 
 router.get('/search', (req, res) => {
