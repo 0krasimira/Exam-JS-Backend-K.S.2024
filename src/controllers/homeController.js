@@ -1,11 +1,9 @@
 const router = require("express").Router()
-// const courseManager = require("../managers/courseManager")
+const stoneManager = require("../managers/stoneManager")
 
-// TODO: CHECK IF THERE IS AN ABOUT PAGE
-
-router.get("/", async(req, res) => {
+router.get("/", async (req, res) => {
     // const courses = await courseManager.getThree().lean()
-    // res.render("home", {courses})
+    res.render("home")
 })
 
 router.get('/404', (req, res) => {

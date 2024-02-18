@@ -5,18 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/styles.css" />
-    <title>Home Page</title>
+    <link rel="stylesheet" href="./static/styles/styles.css" />
+    <title>Register Page</title>
 </head>
 
 <body>
-
-    <!-- <div>
-        <div class="errorContainer">
-            <p>Error</p>
-        </div>
-    </div> -->
-
     <div id="wrapper">
         <header>
             <!-- Navigation -->
@@ -41,9 +34,21 @@
             </nav>
         </header>
 
-        <main class="home">
-            {{{body}}}
-                </main>
+        <main class="register">
+            <!-- Register Page (Only for Guest users) -->
+            <section id="register">
+                <div class="form">
+                    <h2>Register</h2>
+                    <form class="login-form" method="" action="#">
+                        <input type="text" name="" id="register-email" placeholder="email" />
+                        <input type="password" name="" id="register-password" placeholder="password" />
+                        <input type="password" name="" id="repeat-password" placeholder="repeat password" />
+                        <button type="submit">Register</button>
+                        <p class="message">Already registered? <a href="#">Login</a></p>
+                    </form>
+                </div>
+            </section>
+        </main>
 
         <footer>
             <p>@EarthTreasureVaul</p>

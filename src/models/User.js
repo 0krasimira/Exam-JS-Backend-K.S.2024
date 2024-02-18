@@ -1,31 +1,18 @@
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
 
-// TODO: CHECK SCHEMA REQUIREMENTS!!!!!!!!!!!!
 
 const userSchema = new mongoose.Schema({
-    username : {
-        type: String,
-        required: [true, 'Username is required']
-    },
     email : {
         type: String,
         required: [true, 'Email is required'],
-        minLength: [10, 'email too short']
+        minLength: [10, 'Your email address should be at least 10 characters. Please, try again.']
     },
     password: {
         type: String,
         required: [true, 'Password is required'],
-        minLength: [4, "invalid password"]
+        minLength: [4, "Your password should be at least 4 characters. Please, enter a valid password."]
     },
-    createdCourses: [{
-        type: mongoose.Types.ObjectId,
-        ref: 'Course'
-    }],
-    signedUpCourses: [{
-        type: mongoose.Types.ObjectId,
-        ref: "Course"
-    }]
 });
 
 userSchema.pre('save', async function(){
@@ -43,7 +30,7 @@ userSchema.pre('save', async function(){
  
  userSchema.pre('validate', function(next) {
      if (this.password !== this._repeatPassword) {
-         this.invalidate('repeatPassword', 'The passwords should be matching');
+         this.invalidate('repeatPassword', 'The passwords should be matching.');
      }
      next();
  });
